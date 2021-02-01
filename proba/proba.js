@@ -1,33 +1,29 @@
-
-
-
-let arrayToNumber = (number) => {
-    let arr = []
-    for (let i = 1; i <= number; i++) {
-        arr.push(i)
-    }
-    return arr
-}
-let arr = arrayToNumber(10)
-
-function* generateDuble(arr) {
+function* generateDuble() {
     let i = 0
-    let j = 0
-    while (i < arr.length) {
-        while (j < arr.length) {
-            yield [arr[i], arr[j]]
-            ++j
-        }
-        ++i
-        j = 0
+    let j = 1
+    while (i >=0) {
+        yield  (i + j)
+        let z = j
+        j = i + j
+        i = z
+
     }
 }
 
-let iterator = generateDuble(arr)
+let iterator = generateDuble()
+console.log(iterator.next().value)
+console.log(iterator.next().value)
+console.log(iterator.next().value)
+console.log(iterator.next().value)
+console.log(iterator.next().value)
+console.log(iterator.next().value)
+console.log(iterator.next().value)
+console.log(iterator.next().value)
 
 
-for (let i of iterator){
+
+/*for (let i of iterator) {
     console.log(i)
-}
+}*/
 
 
