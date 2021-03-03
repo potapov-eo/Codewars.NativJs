@@ -11,14 +11,6 @@ function* generateDuble() {
 }
 
 let iterator = generateDuble()
-console.log(iterator.next().value)
-console.log(iterator.next().value)
-console.log(iterator.next().value)
-console.log(iterator.next().value)
-console.log(iterator.next().value)
-console.log(iterator.next().value)
-console.log(iterator.next().value)
-console.log(iterator.next().value)
 
 
 
