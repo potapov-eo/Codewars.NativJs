@@ -17,10 +17,10 @@ function superSum(a){
 
     function helper (...args){
       arr=[...arr,...args]
-       debugger
+
       if (arr.length>=a) {
          arr.length=a
-         debugger
+
         return  arr.reduce((acc,num)=>acc+num)
       } else
       return helper
