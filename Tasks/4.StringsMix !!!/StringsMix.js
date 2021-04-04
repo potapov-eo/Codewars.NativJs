@@ -67,9 +67,15 @@ function mix(s1, s2) {
     const resStr = res.filter((value, index, self) => {
         return self.indexOf(value) === index;
     }).sort((a, b) => (b.length - a.length))
-        .sort((a, b) => (b.length === a.length) ? b - a : 0)
-        .sort((a, b) => (b.length === a.length&&b[0]==="=") ?-1: 0)
-        .sort((a, b) =>(b.length === a.length  &&  b[0]==="="  &&  b[0]==="=") ? (b[2] > a[2])?-1:1 : 0)
+        .sort((a, b) => (b.length === a.length) ? (a[0]==="="?1:a.localeCompare(b)) : 0)
+
+        .sort((a, b) =>(b.length === a.length  &&  b[0]==="="&&  a[0]==="=") ? (b[2] > a[2])?-1:1 : 0)
+
+  /*      .sort((a, b) =>(b.length === a.length  &&  b[0]==="=") ? (b[2] > a[2])?-1:1 : 0)*/
+
+        /* .sort((a, b) => (b.length - a.length))
+         .sort((a, b) => (b.length === a.length &&  b[0]==="=") ? -1: 0)
+         .sort((a, b) =>(b.length === a.length  &&  b[0]==="="  &&  a[0]==="=") ? (b[2] > a[2])?-1:1 : 0)*/
         .join("/")
     return resStr
 }
@@ -83,4 +89,5 @@ console.log(mix("Lords of the Fallen", "gamekult")=== "1:ee/1:ll/1:oo")
 console.log(mix("codewars", "codewars")==="")
 console.log(mix("A generation must confront the looming ", "codewarrs")==="1:nnnnn/1:ooooo/1:tttt/1:eee/1:gg/1:ii/1:mm/=:rr")
 
+"1:ooo".localeCompare("2:eeeee")
 
