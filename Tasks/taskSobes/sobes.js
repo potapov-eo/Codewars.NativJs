@@ -8,10 +8,10 @@ let factorial = (n) => {
     return res
 }
 
-let factorial = (n) => (n > 1) ? n * factorial(n - 1) : 1
+let factorial2 = (n) => (n > 1) ? n * factorial(n - 1) : 1
 
 
-function factorial(n) {
+function factorial1(n) {
     return (n != 1) ? n * factorial(n - 1) : 1;
 }
 
@@ -35,9 +35,12 @@ let sort = (arr) => {
 let strrr = (str) => {
     return str.split("")
         .filter((el, i, arr) => arr.indexOf(el) !== arr.lastIndexOf(el))
-        .reduce((acc, el) => acc[el] = acc[el] + 1
-            , {})
-
+        .reduce((acc, el) => {
+                        acc[el] = (acc[el] || 0) + 1
+            return acc
+        }, {})
 }
 
-
+console.log(strrr("ssvsvvvd"))
+let a = {x:5,
+y:2}
