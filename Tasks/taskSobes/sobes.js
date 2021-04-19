@@ -40,7 +40,3 @@ let strrr = (str) => {
             return acc
         }, {})
 }
-
-console.log(strrr("ssvsvvvd"))
-let a = {x:5,
-y:2}
