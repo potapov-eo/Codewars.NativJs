@@ -1,24 +1,34 @@
 /*
-Move the first letter of each word to the end of it, then add "ay" to the end of the word. Leave punctuation marks untouched.
+What is an anagram? Well, two words are anagrams of each other if they both contain the same letters. For example:
 
-Examples
-pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
-pigIt('Hello world !');     // elloHay orldway !
+'abba' & 'baab' == true
+
+'abba' & 'bbaa' == true
+
+'abba' & 'abbba' == false
+
+'abba' & 'abca' == false
+Write a function that will find all the anagrams of a word from a list. You will be given two inputs a word and an array with words. You should return an array of all the anagrams or an empty array if there are none. For example:
+
+anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']) => ['aabb', 'bbaa']
+
+anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']) => ['carer', 'racer']
+
+anagrams('laser', ['lazing', 'lazy',  'lacer']) => []
 */
-function pigIt(str) {
-   return str.split(" ").map(w=>{
-       let code =(letter) => letter.charCodeAt(0);
-       let strStartsWithALetter=(lett) => (code(lett) >= 65 && code(lett) < 91) || (code(lett) >= 97 && code(lett) < 123)
-       return  w.length>1? w.slice(1,w.length)+w[0]+"ay":strStartsWithALetter(w)?w+"ay":w
-    }).join(" ")
+
+function anagrams(word, words) {
+
+    return   words.reduce((acc,el)=>{
+        if (el.length !== word.length){return acc}
+        if (word.split("").sort().join("")===el.split("").sort().join("")){
+            acc.push(el)
+        }
+        return acc
+    },[])
 }
 
-console.log(pigIt('Pig latin is cool') === 'igPay atinlay siay oolcay')
-console.log(pigIt('This is my string') === 'hisTay siay ymay tringsay')
-
-// w.length>1? w.slice(1,w.length)+w[0]+"ay":(/^\p{L}$/u).test(w)?w+"ay":w  does not work in codewards
-
-
+console.log(anagrams("zaz",["zaz","nnn","azz","zza"]))
 
 
 
